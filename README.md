@@ -1,4 +1,4 @@
-# Assignment 1 - ReactJS app
+# Assignment 2 - Enhancing assignment 1 with APIs
 
 Name: Dylan BP (20099082)
 
