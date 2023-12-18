@@ -5,7 +5,9 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   username: { type: String, unique: true, required: true, maxLength: 15 },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  favourites: { type: [Number] },
+  watchlist: { type: [Number] }
 });
 
 UserSchema.methods.comparePassword = async function (passw) {

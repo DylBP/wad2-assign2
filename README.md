@@ -1,54 +1,53 @@
-# Assignment 2 - Enhancing assignment 1 with APIs
+# Assignment 2 - Web API
 
-Name: Dylan BP (20099082)
+Name: Dylan Butler Parry (20099082)
 
-## Overview.
+## Features.
 
-Assignment 1 for Web App Development 2
-
-The app focuses on data provided by the TMDB API, parses it out, and displays the content back to the user.
-The app uses Firebase authentication, and a variety of different types of API calls. The user can query for data regarding a specific movie, or actor, and can filter by genre
-or name.
-
-### Features
+A bullet-point list of the ADDITIONAL features you have implemented in the API **THAT WERE NOT IN THE LABS** (or modifications to existing features)
  
-+ Firebase Authentication
-+ Pagination
-+ Static endpoints for upcoming, top rated, and currently playing movies
-+ Parameterised endpoints for getting the crew, and actor details
-+ A "Watchlist" for upcoming movies, which you can add to and delete from
+ + Feature 1 
+ + Feature 2 
+ + Feature 3 
+ + etc
 
 ## Setup requirements.
 
-```zsh
-npm install
-npm install firebase
+[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
 
-npm start
-```
+## API Configuration
 
-## API endpoints
+Describe any configuration that needs to take place before running the API. For example, creating an `.env` file and what variables to put in it. Give an example of how this might be done.
 
-+ Upcoming movies - /movie/upcoming/
-+ Top rated movies of all time - /movies/toprated
-+ Currently playing movies - /movie/top_rated
-+ Get movie credits - /movie/:id/credits/ (Movie ID passed to API call for crew)
-+ Details for a specific actor - /person/:actor_id (Pass in via the id found from the crew api call)
+REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON GITHUB, just placeholders as indicated below:
 
-## Routing
+______________________
+NODEENV=development
+PORT=8080
+HOST=
+mongoDB=YourMongoURL
+seedDb=true
+secret=ilikecake
+______________________
 
-+ /movies/toprated - displays the top rated movies of all time
-+ /movies/current - displays the movies which are currently playing in cinema
-+ /auth - the default page which the user is brought to - allows the user to sign up and sign in
-+ /actor/:id - the page which displays details for a certain actor, based on id
-+ /movies/watchlist - upcoming movies which have been added to a must watch list
+## API Design
+Give an overview of your web API design, perhaps similar to the following: 
 
-All aspects of the app require authentication. To access any page, a user must have an account (dummy credentials are okay).
+- /api/movies | GET | Gets a list of movies 
+- /api/movies/{movieid} | GET | Gets a single movie 
+- /api/movies/{movieid}/reviews | GET | Get all reviews for movie 
+- /api/movies/{movieid}/reviews | POST | Create a new review for Movie 
 
-## Independent learning (If relevant)
+If you have your API design on an online platform or graphic, please link to it (e.g. [Swaggerhub](https://app.swaggerhub.com/)).
 
-+ Firebase
-  + Used the Firebase API documentation for getting started with the setup and requirements (https://firebase.google.com/docs/auth/web/start)
-  + Code adaptations made based on requirements for JSX instead of JS as given
-+ Pagination
-  + Documentation on pagination from React (https://mui.com/material-ui/react-pagination/)
+## Security and Authentication
+
+Give details of authentication/security implemented on the API (e.g. passport/sessions). Indicate which routes are protected.
+
+## Integrating with React App
+
+Describe how you integrated your React app with the API. List the views that use your Web API instead of the TMDB API. Describe any other updates to the React app from Assignment One.
+
+## Independent learning (if relevant)
+
+Briefly explain any non-standard features developed for the app.   
