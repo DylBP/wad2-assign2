@@ -79,3 +79,7 @@ Brief explanation of any non-standard features developed for the app.
 ## API Documentation
 
 If you have your API design on an online platform or graphic, please link to it (e.g., [Swaggerhub](https://app.swaggerhub.com/)).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
