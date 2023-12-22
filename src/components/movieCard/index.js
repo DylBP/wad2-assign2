@@ -15,18 +15,21 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import { AuthContext } from "../../contexts/authContext";
 
 export default function MovieCard({ movie, action }) {
     const { favorites } = useContext(MoviesContext);
     const { myWatchlist } = useContext(MoviesContext);
 
-    if (favorites.find((id) => id === movie.id)) {
+    const context = useContext(AuthContext);
+
+    if (context.favourites.find((id) => id === movie.id)) {
         movie.favorite = true;
     } else {
         movie.favorite = false
     }
 
-    if (myWatchlist.find((id) => id === movie.id)) {
+    if (context.watchlist.find((id) => id === movie.id)) {
         movie.watchlist = true;
     } else {
         movie.watchlist = false

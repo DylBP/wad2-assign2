@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { login, signup, getUserDetails } from "../api/tmdb-api";
+import { login, signup, getUserDetails, addMovieToList, removeMovieFromList } from "../api/tmdb-api";
 
 export const AuthContext = createContext(null);
 
@@ -39,6 +39,34 @@ const AuthContextProvider = (props) => {
     setTimeout(() => setIsAuthenticated(false), 100);
   }
 
+  const addToFavourites = async (movieid) => {
+    const response = await addMovieToList(userName, movieid, "favourites");
+    console.log(response);
+    setFavourites(prev => [...favourites, movieid]);
+    return (response.code === 200) ? true : false;
+  }
+
+  const removeFromFavourites = async (movieid) => {
+    const response = await removeMovieFromList(userName, movieid, "favourites");
+    console.log(response);
+    setFavourites(prev => prev.filter(id => id !== movieid));
+    return (response.code === 200) ? true : false;
+  }
+
+  const addToWatchlist = async (movieid) => {
+    const response = await addMovieToList(userName, movieid, "watchlist");
+    console.log(response);
+    setWatchlist(prev => [...watchlist, movieid]);
+    return (response.code === 200) ? true : false;
+  }
+
+  const removeFromWatchlist = async (movieid) => {
+    const response = await removeMovieFromList(userName, movieid, "watchlist");
+    console.log(response);
+    setWatchlist(prev => prev.filter(id => id !== movieid));
+    return (response.code === 200) ? true : false;
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -46,6 +74,10 @@ const AuthContextProvider = (props) => {
         authenticate,
         register,
         signout,
+        addToFavourites,
+        removeFromFavourites,
+        addToWatchlist,
+        removeFromWatchlist,
         userName,
         favourites,
         watchlist

@@ -25,6 +25,8 @@ const SiteHeader = ( ) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+    var parsedMenu = [];
+
     const menuOptions = [
         { label: "Home", path: "/" },
         { label: "Favorites", path: "/movies/favorites" },
@@ -35,8 +37,8 @@ const SiteHeader = ( ) => {
     ];
 
     const unauthenticatedOptions = [
-        { label: "Sign in", path: "/" },
-        { label: "Sign up", path: "/" }
+        { label: "Sign in", path: "/login" },
+        { label: "Sign up", path: "/signup" }
     ];
 
     const handleMenuSelect = (pageURL) => {
@@ -47,6 +49,11 @@ const SiteHeader = ( ) => {
         setAnchorEl(event.currentTarget);
     };
 
+    if (context.isAuthenticated) {
+        parsedMenu = menuOptions;
+    } else {
+        parsedMenu = unauthenticatedOptions;
+    }
 
     return context.isAuthenticated ? (
         <>
@@ -87,7 +94,7 @@ const SiteHeader = ( ) => {
                                 open={open}
                                 onClose={() => setAnchorEl(null)}
                             >
-                                {menuOptions.map((opt) => (
+                                {parsedMenu.map((opt) => (
                                     <MenuItem
                                         key={opt.label}
                                         onClick={() => handleMenuSelect(opt.path)}
@@ -99,7 +106,7 @@ const SiteHeader = ( ) => {
                         </>
                     ) : (
                         <>
-                            {menuOptions.map((opt) => (
+                            {parsedMenu.map((opt) => (
                                 <Button
                                     key={opt.label}
                                     color="inherit"
@@ -151,7 +158,7 @@ const SiteHeader = ( ) => {
                                 open={open}
                                 onClose={() => setAnchorEl(null)}
                             >
-                                {menuOptions.map((opt) => (
+                                {parsedMenu.map((opt) => (
                                     <MenuItem
                                         key={opt.label}
                                         onClick={() => handleMenuSelect(opt.path)}
@@ -163,7 +170,7 @@ const SiteHeader = ( ) => {
                         </>
                     ) : (
                         <>
-                            {menuOptions.map((opt) => (
+                            {parsedMenu.map((opt) => (
                                 <Button
                                     key={opt.label}
                                     color="inherit"

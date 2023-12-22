@@ -11,4 +11,38 @@ router.get('/:username', asyncHandler(async (req, res) => {
     return res.status(200).json(userDetails);
 }));
 
+router.put('/:username/add', asyncHandler(async(req, res) => {
+    const username = req.params.username;
+    const { array, id } = req.body;
+
+    try {
+        const update = { $addToSet: { [array]: id } };
+        const userDetails = await UserDetails.findOneAndUpdate({username: username}, update, { new: true });
+
+        if(userDetails) {
+            return res.status(200).json(userDetails);
+        }
+        res.status(400).json({status_code: 400, msg: "User not found"});
+    } catch (error) {
+        res.status(500).json({status_code: 500, message: error});
+    }
+}));
+
+router.put('/:username/rem', asyncHandler(async(req, res) => {
+    const username = req.params.username;
+    const { array, id } = req.body;
+
+    try {
+        const update = { $pull: { [array]: id } };
+        const userDetails = await UserDetails.findOneAndUpdate({username: username}, update, { new: true });
+
+        if(userDetails) {
+            return res.status(200).json(userDetails);
+        }
+        res.status(400).json({status_code: 400, msg: "User not found"});
+    } catch (error) {
+        res.status(500).json({status_code: 500, message: error});
+    }
+}));
+
 export default router;

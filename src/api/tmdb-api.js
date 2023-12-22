@@ -208,3 +208,25 @@ export const getUserDetails = async (username) => {
   });
   return response.json();
 }
+
+export const addMovieToList = async (username, movieid, listName) => {
+  const response = await fetch(`http://localhost:8080/api/userDetails/${username}/add`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'put',
+    body: JSON.stringify({ id: movieid, array: listName  })
+  });
+  return response.json();
+};
+
+export const removeMovieFromList = async (username, movieid, listName) => {
+  const response = await fetch(`http://localhost:8080/api/userDetails/${username}/rem`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'put',
+    body: JSON.stringify({ id: movieid, array: listName})
+  });
+  return response.json()
+};

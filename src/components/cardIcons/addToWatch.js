@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { AuthContext } from "../../contexts/authContext";
 import IconButton from "@mui/material/IconButton";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const AddToWatchlistIcon = ({ movie }) => {
-    const context = useContext(MoviesContext);
+    const context = useContext(AuthContext);
 
     const handleAddToWatchlist = (e) => {
         e.preventDefault();
-        context.addToWatchList(movie);
+        context.addToWatchlist(movie.id);
     };
 
     return (
