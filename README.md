@@ -7,28 +7,31 @@ Name: Dylan Butler Parry (20099082)
 A bullet-point list of the ADDITIONAL features you have implemented in the API **THAT WERE NOT IN THE LABS** (or modifications to existing features)
  
  + Pagination component retrofitting (Using the same system as in assignment 1)
- + New UserDetails collection to handle the favourites and watchlist (currently can only view, no update or add)
+ + New UserDetails collection to handle the favourites and watchlist (view, update)
  + Handling of many new API calls (static and parameterised)
 
 ## Setup requirements.
 
-+ Create a .env file in both the root of the project, and inside api_application
 + Run npm install from project root, and from api_application (install node dependencies for both parts of the assignment)
-+ Inside the .env file, structure it as follows:
 
 ## API Configuration
 
-Describe any configuration that needs to take place before running the API. For example, creating an `.env` file and what variables to put in it. Give an example of how this might be done.
-
-REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON GITHUB, just placeholders as indicated below:
-
++ Create a .env file in both the root of the project, and inside api_application
++ Inside the .env file within the api_application, structure it as follows:
 ______________________
-NODEENV=development
+NODE_ENV=development
 PORT=8080
-HOST=
-mongoDB=YourMongoURL
-seedDb=true
-secret=ilikecake
+HOST=localhost
+MONGO_DB=<your_mongo_url>
+TMDB_KEY=<your tmdb key>
+SECRET=<any seed string>
+______________________
+
++ Inside the .env file within the root of the project, structure it as follows:
+______________________
+NODE_ENV=development
+PORT=3000
+HOST=localhost
 ______________________
 
 ## API Design
