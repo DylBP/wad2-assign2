@@ -9,6 +9,8 @@
 
 + Pagination component retrofitting (Using the same system as in Assignment 1)
 + Introduction of the `UserDetails` collection to handle favorites and watchlist (view, update)
+    + Front-end will use this
+    + UserDetails collection can be manually reviewed on MongoDB if using cloud DB
 + Handling of many new API calls (static and parameterized)
 
 ## Setup Requirements
@@ -64,15 +66,14 @@ And for non-parameterised endpoints:
 ## Security and Authentication
 
 - For authentication when accessing the TMDB API, we are using JWT
-- - This is protected, as they must provide a bearer token in request which subsequently access the TMDB API
+    - This is protected, as they must provide a bearer token in request which subsequently access the TMDB API
+    - In the case of using the front-end, the application will pull the token from storage
 - All routes are protected, except for login and signup
 
 ## Integrating with React App
 
-Description of how the React app is integrated with the API:
-
-- List the views that use your Web API instead of the TMDB API.
-- Describe any updates made to the React app from Assignment One.
+- All views are now using the Node API
+- No additional functionality has been added to the React app - I have simply retrofitted it with the new API
 
 ## Independent Learning
 
