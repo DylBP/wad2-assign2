@@ -7,19 +7,17 @@
 
 ## Features
 
-A list of additional features implemented in the API that were not covered in the labs or modifications to existing features:
-
 + Pagination component retrofitting (Using the same system as in Assignment 1)
 + Introduction of the `UserDetails` collection to handle favorites and watchlist (view, update)
 + Handling of many new API calls (static and parameterized)
 
 ## Setup Requirements
 
-1. Run `npm install` from the project root and the `api_application` directory to install node dependencies for both parts of the assignment.
+1. Run `npm install` from the project root and the `/api_application` directory to install node dependencies for both parts of the assignment.
 
 ## API Configuration
 
-1. Create a `.env` file in both the root of the project and inside `api_application`.
+1. Create a `.env` file in both the root of the project and inside `/api_application`.
 2. Structure the `.env` file inside `api_application` as follows:
 
     ```env
@@ -41,12 +39,24 @@ A list of additional features implemented in the API that were not covered in th
 
 ## API Design
 
-An overview of the web API design:
+An overview of the web API design (non-TMDB pages):
 
-- `/api/movies` | GET | Gets a list of movies
-- `/api/movies/{movieid}` | GET | Gets a single movie
-- `/api/movies/{movieid}/reviews` | GET | Get all reviews for a movie
-- `/api/movies/{movieid}/reviews` | POST | Create a new review for a movie
+- `/api/movies` | GET | Gets a list of movies from the DB
+- `/api/movies/{movieid}` | GET | Gets a single movie from the DB
+
+An overview of the web API design (TMDB pages):
+- `/api/movies/tmdb/movie/{movieid}` | GET | Gets a single movie
+- `/api/movies/tmdb/movie/credits/{movieid}` | GET | Gets the credits for a single movie
+- `/api/movies/tmdb/actor/{actorid}` | GET | Gets a single actor
+- `/api/movies/tmdb/movieimages/{movieid}` | GET | Gets the images associated with a movie
+- `/api/movies/tmdb/moviereviews/{movieid}` | GET | Get all reviews for a movie
+
+And for non-parameterised endpoints:
+- `/api/movies/tmdb/discover` | GET | Gets the movies from the discover endpoint
+- `/api/movies/tmdb/current` | GET | Gets the currently playing movies
+- `/api/movies/tmdb/toprated` | GET | Gets the top rated movies
+- `/api/movies/tmdb/genres` | GET | Gets a list of genres from TMDB
+- `/api/movies/tmdb/upcoming` | GET | Gets the upcoming movies
 
 ## Security and Authentication
 
