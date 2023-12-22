@@ -2,6 +2,7 @@ import express from 'express';
 import User from './userModel';
 import asyncHandler from 'express-async-handler';
 import jwt from 'jsonwebtoken';
+import UserDetails from '../userDetails/userDetailsModel';
 
 const router = express.Router(); // eslint-disable-line
 
@@ -47,6 +48,7 @@ router.put('/:id', async (req, res) => {
 async function registerUser(req, res) {
     // Add input validation logic here
     await User.create(req.body);
+    await UserDetails.create({ username: req.body.username, favourites: [], watchlist: [] });
     res.status(201).json({ success: true, msg: 'User successfully created.' });
 }
 

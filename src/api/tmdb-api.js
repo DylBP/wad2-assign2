@@ -198,3 +198,13 @@ export const signup = async (username, password) => {
   });
   return response.json();
 };
+
+export const getUserDetails = async (username) => {
+  const response = await fetch(`http://localhost:8080/api/userDetails/${username}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'get'
+  });
+  return response.json();
+}

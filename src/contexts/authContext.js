@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { login, signup } from "../api/tmdb-api";
+import { login, signup, getUserDetails } from "../api/tmdb-api";
 
 export const AuthContext = createContext(null);
 
@@ -8,6 +8,8 @@ const AuthContextProvider = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authToken, setAuthToken] = useState(existingToken);
   const [userName, setUserName] = useState("");
+  const [favourites, setFavourites] = useState();
+  const [watchlist, setWatchlist] = useState();
 
   //Function to put JWT token in local storage.
   const setToken = (data) => {
@@ -21,6 +23,9 @@ const AuthContextProvider = (props) => {
       setToken(result.token)
       setIsAuthenticated(true);
       setUserName(username);
+      const userDetails = await getUserDetails(username);
+      setFavourites(userDetails.favourites);
+      setWatchlist(userDetails.watchlist);
     }
   };
 
@@ -41,7 +46,9 @@ const AuthContextProvider = (props) => {
         authenticate,
         register,
         signout,
-        userName
+        userName,
+        favourites,
+        watchlist
       }}
     >
       {props.children}
