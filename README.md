@@ -64,7 +64,8 @@ And for non-parameterised endpoints:
 ## Security and Authentication
 
 - For authentication when accessing the TMDB API, we are using JWT
-- Specify which routes are protected.
+- - This is protected, as they must provide a bearer token in request which subsequently access the TMDB API
+- All routes are protected, except for login and signup
 
 ## Integrating with React App
 
