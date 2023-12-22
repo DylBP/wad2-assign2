@@ -6,14 +6,15 @@ Name: Dylan Butler Parry (20099082)
 
 A bullet-point list of the ADDITIONAL features you have implemented in the API **THAT WERE NOT IN THE LABS** (or modifications to existing features)
  
- + Feature 1 
- + Feature 2 
- + Feature 3 
- + etc
+ + Pagination component retrofitting (Using the same system as in assignment 1)
+ + New UserDetails collection to handle the favourites and watchlist (currently can only view, no update or add)
+ + Handling of many new API calls (static and parameterised)
 
 ## Setup requirements.
 
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
++ Create a .env file in both the root of the project, and inside api_application
++ Run npm install from project root, and from api_application (install node dependencies for both parts of the assignment)
++ Inside the .env file, structure it as follows:
 
 ## API Configuration
 
