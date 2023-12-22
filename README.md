@@ -43,7 +43,9 @@ An overview of the web API design (non-TMDB pages):
 
 - `/api/movies` | GET | Gets a list of movies from the DB
 - `/api/movies/{movieid}` | GET | Gets a single movie from the DB
-- `/api`
+- `/api/userDetails` | GET | Gets all the user details
+- `/api/userDetails/{username}/add` | PUT | Updates user details based on array and movieid in body, and username from URL
+- `/api/userDetails/{username}/rem` | PUT | Removes user details based on array and movieid in body, and username from URL
 
 An overview of the web API design (TMDB pages):
 - `/api/movies/tmdb/movie/{movieid}` | GET | Gets a single movie
@@ -61,9 +63,7 @@ And for non-parameterised endpoints:
 
 ## Security and Authentication
 
-Details of authentication/security implemented on the API:
-
-- Mention the authentication method used (e.g., passport, sessions).
+- For authentication when accessing the TMDB API, we are using JWT
 - Specify which routes are protected.
 
 ## Integrating with React App
