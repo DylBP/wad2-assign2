@@ -74,7 +74,4 @@ And for non-parameterised endpoints:
 
 - All views are now using the Node API
 - No additional functionality has been added to the React app - I have simply retrofitted it with the new API
-
-## Independent Learning
-
-Brief explanation of any non-standard features developed for the app.
+    - The login and signup page have been changed to look better, and give a better indication of what went wrong
