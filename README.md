@@ -43,6 +43,7 @@ An overview of the web API design (non-TMDB pages):
 
 - `/api/movies` | GET | Gets a list of movies from the DB
 - `/api/movies/{movieid}` | GET | Gets a single movie from the DB
+- `/api`
 
 An overview of the web API design (TMDB pages):
 - `/api/movies/tmdb/movie/{movieid}` | GET | Gets a single movie
@@ -75,11 +76,3 @@ Description of how the React app is integrated with the API:
 ## Independent Learning
 
 Brief explanation of any non-standard features developed for the app.
-
-## API Documentation
-
-If you have your API design on an online platform or graphic, please link to it (e.g., [Swaggerhub](https://app.swaggerhub.com/)).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).

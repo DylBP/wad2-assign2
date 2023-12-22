@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { MoviesContext } from "../../contexts/moviesContext";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -18,8 +17,6 @@ import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import { AuthContext } from "../../contexts/authContext";
 
 export default function MovieCard({ movie, action }) {
-    const { favorites } = useContext(MoviesContext);
-    const { myWatchlist } = useContext(MoviesContext);
 
     const context = useContext(AuthContext);
 
